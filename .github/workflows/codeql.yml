@@ -30,6 +30,11 @@ jobs:
     #    password: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
+      - name: Setup Java
+      - uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin' # See 'Supported distributions' for available options
+          java-version: '17'
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Initialize CodeQL
