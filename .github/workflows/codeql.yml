@@ -23,7 +23,7 @@ jobs:
 
     # Specify the container in which actions will run
     container:
-      image: my-image-name:1748446620 #codeql-container:f0f91db
+      image: ghcr.io/vichuzlyf/simplehttpserver:latest #codeql-container:f0f91db
     #  credentials:
     #    username: ${{ github.actor }}
     #    password: ${{ secrets.GITHUB_TOKEN }}
