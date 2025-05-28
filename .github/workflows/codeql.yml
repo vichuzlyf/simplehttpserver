@@ -24,14 +24,12 @@ jobs:
     # Specify the container in which actions will run
     container:
       image: ghcr.io/vichuzlyf/simplehttpserver:latest #codeql-container:f0f91db
+      options: --user root
     #  credentials:
     #    username: ${{ github.actor }}
     #    password: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
-      - name: Add Permission
-        run: |
-          chmod -R u+rwX .
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Initialize CodeQL
