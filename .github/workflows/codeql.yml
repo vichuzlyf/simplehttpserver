@@ -29,6 +29,9 @@ jobs:
     #    password: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
+      - name: Add Permission
+        run: |
+          chmod -R u+rwX .
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Initialize CodeQL
