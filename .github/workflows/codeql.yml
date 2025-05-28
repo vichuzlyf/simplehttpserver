@@ -26,7 +26,7 @@ jobs:
       image: vichuzlyf/simplehttpserver #codeql-container:f0f91db
       credentials:
         username: ${{ github.actor }}
-        password: ${{ secrets.github_token }}
+        password: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
       - name: Checkout repository
