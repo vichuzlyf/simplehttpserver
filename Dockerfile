@@ -2,13 +2,14 @@
 # simplehttpserver build stage
 ########################################################################################################################
 
-FROM alpine:3.17.0 AS build
+FROM ubuntu:24.10 AS build
 
-RUN apk update && \
-    apk add --no-cache \
+RUN apt-get clean && apt-get update -y && \
+    apt-get --fix-broken install -y \
     build-base \
     cmake \
-    boost1.80-dev=1.80.0-r3
+    libboost-dev \
+    libboost-program-options-dev
 
 WORKDIR /simplehttpserver
 
@@ -24,12 +25,13 @@ RUN cmake -DCMAKE_BUILD_TYPE=Release .. && \
 # simplehttpserver image
 ########################################################################################################################
 
-FROM alpine:3.17.0
+FROM ubuntu:24.10
 
-RUN apk update && \
-    apk add --no-cache \
-    libstdc++ \
-    boost1.80-program_options=1.80.0-r3
+RUN apt-get clean && apt-get update -y && \
+    apt-get --fix-broken install -y \
+    libstdc++14 \
+    libboost-dev \
+    libboost-program-options-dev
 
 RUN addgroup -S shs && adduser -S shs -G shs
 USER shs
